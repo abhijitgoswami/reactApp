@@ -1,0 +1,54 @@
+#register-box{
+    background-color: #86a2bfe0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px 50px;
+    border-radius: 20px;
+    box-shadow: 13px 15px 20px 2px black;
+    width: 80%;
+}
+
+
+#reg-title{
+    margin-bottom: 40px;
+    font-family: cursive;
+    text-align: center;
+}
+
+.form-check-input{
+    margin-left: 0 !important;
+}
+
+#cust-type p{
+    margin-left: 20px;
+}
+
+@media (min-width: 768px){
+    .offset-md-1{
+        margin-left: 0 !important;
+    }
+
+    #register-box{
+        width: 60%;
+    }
+}
+
+@media (max-width: 576px){
+    .offset-md-1{
+        margin-left: 0 !important;
+    }
+
+    #register-box{
+        padding: 40px 20px;
+    }
+}
+
+#reg-footer{
+    text-align: center;
+    padding: 0 20px;
+    padding-bottom: 30px;
+}
+
+#reg-button{
+    margin-top: 20px;
+}

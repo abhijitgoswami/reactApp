@@ -1,0 +1,44 @@
+@media (max-width: 765px){
+    #login-box{
+        margin-top: 40px;
+    }
+}
+
+#login-box{
+    background-color: #86a2bfe0;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    padding: 20px 50px;
+    border-radius: 20px;
+    box-shadow: 13px 15px 20px 2px black;
+    width: 70%;
+}
+
+.form-control{
+    border: 0 !important;
+    background-color: transparent !important;
+    border-bottom: 1px solid black !important;
+}
+
+#log-title{
+    margin-bottom: 40px;
+    font-family: cursive;
+    text-align: center;
+}
+
+#log-footer{
+    text-align: center;
+    padding: 0 20px;
+    padding-bottom: 30px;
+}
+
+@media (min-width: 768px){
+    .offset-md-1{
+        margin-left: 0 !important;
+    }
+
+    #login-box{
+        width: 40%;
+    }
+}
+
