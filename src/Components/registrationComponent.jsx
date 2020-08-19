@@ -121,7 +121,7 @@ class Register extends Component {
                     </Form>
                     <div id="reg-footer">
                         <strong>Already have account ?</strong>{" "}
-                        <p><NavLink className="nav-link" to="/login">SIGN IN</NavLink></p>
+                        <strong><NavLink className="nav-link" to="/login">SIGN IN</NavLink></strong>
                     </div>
                 </div> 
             </React.Fragment>            
