@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/home.css';
 import {NavbarBrand, Card, CardTitle, CardBody, CardDeck} from 'reactstrap';
+import {NavLink} from 'react-router-dom';
 
 class Home extends Component {
     render() { 
@@ -10,16 +11,16 @@ class Home extends Component {
                     <div id="home-top" className="row">                  
                         <Card id="brand" className="col-lg-6 col-md-6 col-sm-12">   
                             <div id="logo">
-                                <NavbarBrand className="mr-auto" href="/home">
-                                    <span>Brand Name</span>
+                                <NavbarBrand className="mr-auto">
+                                    <NavLink to="/home">Brand Name</NavLink>
                                 </NavbarBrand> 
                             
                                 <div id="log-reg">
                                     <div id="log" className="float-left">
-                                        <a href="/login">LOGIN</a>
+                                        <NavLink className="nav-link" to="/login">LOGIN</NavLink>
                                     </div>
                                     <div id="reg" className="float-left">
-                                        <a href="/register">SIGN UP</a>
+                                        <NavLink className="nav-link" to="/register">SIGN UP</NavLink>
                                     </div>
                                 </div>  
                             </div>    
