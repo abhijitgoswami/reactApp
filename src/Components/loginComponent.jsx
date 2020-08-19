@@ -71,7 +71,7 @@ class Login extends Component {
 
                     <div id="log-footer">
                         <strong>Not have an account ?</strong>{" "}
-                        <strong><NavLink to="/register">SIGN UP</NavLink></strong>
+                        <p><NavLink to="/register">SIGN UP</NavLink></p>
                     </div> 
                     
                 </Form>
