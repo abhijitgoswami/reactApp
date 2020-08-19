@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Form, Button, FormGroup, Label, Input, Col } from 'reactstrap';
+import {NavLink} from 'react-router-dom';
 import '../styles/register.css';
 
 class Register extends Component {
@@ -120,7 +121,7 @@ class Register extends Component {
                     </Form>
                     <div id="reg-footer">
                         <strong>Already have account ?</strong>{" "}
-                        <strong><a href="/login">SIGN IN</a></strong>
+                        <strong><NavLink to="/login">SIGN IN</NavLink></strong>
                     </div>
                 </div> 
             </React.Fragment>            

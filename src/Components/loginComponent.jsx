@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Form, Button, FormGroup, Label, Input, Col } from 'reactstrap';
+import {Form, Button, FormGroup, Label, Input, Col} from 'reactstrap';
+import {NavLink} from 'react-router-dom';
 import '../styles/login.css';
 
 class Login extends Component {
@@ -70,7 +71,7 @@ class Login extends Component {
 
                     <div id="log-footer">
                         <strong>Not have an account ?</strong>{" "}
-                        <strong><a href="/register">SIGN UP</a></strong>
+                        <strong><NavLink to="/register">SIGN UP</NavLink></strong>
                     </div> 
                     
                 </Form>
