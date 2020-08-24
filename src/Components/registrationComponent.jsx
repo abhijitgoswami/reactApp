@@ -19,6 +19,7 @@ class Register extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.getShopDetails = this.getShopDetails.bind(this);
     }
 
     handleInputChange(event){
@@ -35,6 +36,33 @@ class Register extends Component {
         console.log("Current State is: " + JSON.stringify(this.state));
         alert("Current State is: " + JSON.stringify(this.state));
         event.preventDefault();
+    }
+
+    getShopDetails(){
+        if(this.state.acctype === 'vendor'){
+            return(
+                <React.Fragment>
+                    <FormGroup row>
+                        <Label htmlFor="shopname" md={{size:2, offset:1}}>Shop name</Label>
+                        <Col md={9}>
+                            <Input type="text" id="shopname" name="shopname" placeholder="Shopname" value={this.state.shopname} 
+                            onChange={this.handleInputChange}/>
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup row>
+                        <Label htmlFor="shopaddress" md={{size:2, offset:1}}>Shopaddress</Label>
+                        <Col md={9}>
+                            <Input type="text" id="shopaddress" name="shopaddress" placeholder="Shopaddress" 
+                            value={this.state.shopaddress} onChange={this.handleInputChange}/>
+                        </Col>
+                    </FormGroup>
+                </React.Fragment>
+            )
+        }
+        else{
+            return null
+        }
     }
 
     render() { 
@@ -88,30 +116,16 @@ class Register extends Component {
                         <FormGroup row id="cust-type">
                             <Label htmlFor="acctype" md={{size:3, offset:1}}>Account type</Label>
                             <Col  md={{size: 3, offset:1}}>                                                      
-                                <Input type="radio" name="customer" checked={this.state.acctype} onChange={this.handleInputChange}/>{' '}
+                                <Input type="radio" name="acctype" value='customer' onChange={this.handleInputChange}/>{' '}
                                     <p>Customer</p>                                                                
                             </Col>     
                             <Col md={{size: 3, offset:1}}>                           
-                                <Input type="radio" name="vendor" checked={this.state.acctype} onChange={this.handleInputChange}/>{' '}
+                                <Input type="radio" name="acctype" value='vendor' onChange={this.handleInputChange}/>{' '}
                                     <p>Vendor</p>                             
                             </Col>
                         </FormGroup>
 
-                        <FormGroup row>
-                            <Label htmlFor="shopname" md={{size:2, offset:1}}>Shop name</Label>
-                            <Col md={9}>
-                                <Input type="text" id="shopname" name="shopname" placeholder="Shopname" value={this.state.shopname} 
-                                onChange={this.handleInputChange}/>
-                            </Col>
-                        </FormGroup>
-
-                        <FormGroup row>
-                            <Label htmlFor="shopaddress" md={{size:2, offset:1}}>Shopaddress</Label>
-                            <Col md={9}>
-                                <Input type="text" id="shopaddress" name="shopaddress" placeholder="Shopaddress" 
-                                value={this.state.shopaddress} onChange={this.handleInputChange}/>
-                            </Col>
-                        </FormGroup>
+                        {this.getShopDetails()}
 
                         <FormGroup row>
                             <Col id="reg-button" style={{textAlign: "center"}} md={{size: 4, offset:4}}>

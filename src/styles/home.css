@@ -35,6 +35,18 @@ body{
     margin-bottom: 50px;
 }
 
+#navbrand{
+    float: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+#navbrand a{
+    text-decoration: none;
+}
 #log-reg{
     float: right;
     padding-top: 0.3125rem;
