@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Form, Button, FormGroup, Label, Input, Col, FormFeedback } from 'reactstrap';
+import {Form, Button, FormGroup, Label, Input, Col} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import '../styles/register.css';
 
@@ -14,22 +14,11 @@ class Register extends Component {
             dob: '',
             acctype: '',
             shopname: '',
-            shopaddress: '',
-            touched: {
-                fname: false,
-                mob: false,
-                email: false,
-                lname: false,
-                dob: false,
-                acctype: false,
-                shopname: false,
-                shopaddress: false,
-            }
+            shopaddress: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.getShopDetails = this.getShopDetails.bind(this);
-        this.handleBlur = this.handleBlur.bind(this);
     }
 
     handleInputChange(event){
@@ -47,54 +36,14 @@ class Register extends Component {
         event.preventDefault();
     }
 
-    handleBlur = (field) => (evt) => {
-        this.setState({
-           touched: {...this.state.touched, [field]: true} 
-        });
-    }
-
-    validate(fname, lname, dob, mob, email, acctype, shopname, shopaddress){
-        const errors = {
-            fname: '', 
-            lname: '', 
-            dob: '', 
-            mob: '', 
-            email: '',
-            acctype: '', 
-            shopname: '', 
-            shopaddress: ''
-        };
-
-        if(this.state.touched.fname && fname.length === 0)
-            errors.fname = "First name cann't be empty";
-        if(this.state.touched.lname && lname.length === 0)
-            errors.lname = "Last name cann't be empty";
-        if(this.state.touched.dob && dob.length === 0)
-            errors.dob = "Date of birth cann't be empty";  
-
-        const reg = /^\d+$/;
-        if(this.state.touched.mob && !reg.test(mob))
-            errors.mob = "Field shpuld contain only numbers";
-        if(this.state.touched.email && email.split('').filter(x => x ==='@').length !== 1)
-            errors.email = "Invalid Email!";
-        if(this.state.touched.shopname && shopname.length === 0)
-            errors.shopname = "Shop name cann't be empty";
-        if(this.state.touched.shopaddress &&  shopaddress.length === 0)
-            errors.shopaddress = "Shop address cann't be empty";
-
-        return errors;
-    }
-
-    getShopDetails(errors){
+    getShopDetails(){
         if(this.state.acctype === 'vendor'){
             return(
                 <React.Fragment>
                     <FormGroup row>
                         <Label htmlFor="shopname" md={{size:2, offset:1}}>Shop name</Label>
                         <Col md={9}>
-                            <Input type="text" id="shopname" name="shopname" placeholder="Shopname" value={this.state.shopname} onChange={this.handleInputChange} onBlur={this.handleBlur('shopname')}
-                            valid={errors.shopname === ''} invalid={errors.shopname !== ''}/>
-                            <FormFeedback>{errors.shopname}</FormFeedback>
+                            <Input type="text" id="shopname" name="shopname" placeholder="Shopname" value={this.state.shopname} onChange={this.handleInputChange}/>                          
                         </Col>
                     </FormGroup>
 
@@ -102,10 +51,7 @@ class Register extends Component {
                         <Label htmlFor="shopaddress" md={{size:2, offset:1}}>Shopaddress</Label>
                         <Col md={9}>
                             <Input type="text" id="shopaddress" name="shopaddress" placeholder="Shopaddress" 
-                            value={this.state.shopaddress} onChange={this.handleInputChange} 
-                            onBlur={this.handleBlur('shopaddress')} valid={errors.shopaddress === ''} 
-                            invalid={errors.shopaddress !== ''}/>
-                            <FormFeedback>{errors.shopaddress}</FormFeedback>
+                            value={this.state.shopaddress} onChange={this.handleInputChange} />                
                         </Col>
                     </FormGroup>
                 </React.Fragment>
@@ -117,8 +63,6 @@ class Register extends Component {
     }
 
     render() { 
-        const errors = this.validate(this.state.fname, this.state.lname, this.state.dob, this.state.mob, this.state.email, 
-            this.state.acctype, this.state.shopname, this.state.shopaddress)
         return (  
             <React.Fragment>
                 <div id="register-box" className="container col-12 col-md-9">
@@ -130,9 +74,7 @@ class Register extends Component {
                             <Label  htmlFor="fname" md={2}>First Name</Label>
                             <Col md={9}>
                                 <Input type="text" id="fname" name="fname" placeholder="First Name" value={this.state.fname}
-                                valid={errors.fname === ''} invalid={errors.fname !== ''} 
-                                onChange={this.handleInputChange} onBlur={this.handleBlur('fname')}/>
-                                <FormFeedback>{errors.fname}</FormFeedback>
+                                 onChange={this.handleInputChange} required/>
                             </Col>
                         </FormGroup> 
 
@@ -140,19 +82,14 @@ class Register extends Component {
                             <Label htmlFor="lname" md={2}>Last Name</Label>
                             <Col md={9}>
                                 <Input type="text" id="lname" name="lname" placeholder="Last Name" value={this.state.lname}
-                                valid={errors.lname === ''} invalid={errors.lname !== ''} 
-                                onChange={this.handleInputChange} onBlur={this.handleBlur('lname')}/>
-                                <FormFeedback>{errors.lname}</FormFeedback>
+                                onChange={this.handleInputChange} required/>              
                             </Col>
                         </FormGroup> 
 
                         <FormGroup row>
                             <Label htmlFor="dob" md={2}>Date of birth</Label>
                             <Col md={9}>
-                                <Input type="date" id="dob" name="dob" placeholder="DOB" value={this.state.dob} 
-                                valid={errors.dob === ''} invalid={errors.dob !== ''}
-                                onChange={this.handleInputChange} onBlur={this.handleBlur('dob')}/>
-                                <FormFeedback>{errors.dob}</FormFeedback>
+                                <Input type="date" id="dob" name="dob" placeholder="DOB" value={this.state.dob}              onChange={this.handleInputChange} required/>
                             </Col>
                         </FormGroup>
 
@@ -160,9 +97,7 @@ class Register extends Component {
                             <Label htmlFor="mob" md={{size:2, offset:1}}>Mobile</Label>
                             <Col md={9}>
                                 <Input type="tel" id="mob" name="mob" placeholder="Mobile" value={this.state.mob} 
-                                onChange={this.handleInputChange} onBlur={this.handleBlur('mob')} 
-                                valid={errors.mob === ''} invalid={errors.mob !== ''}/>
-                                <FormFeedback>{errors.mob}</FormFeedback>
+                                onChange={this.handleInputChange} pattern = "[0-9]{10}" required/>
                             </Col>
                         </FormGroup>
 
@@ -170,9 +105,7 @@ class Register extends Component {
                             <Label htmlFor="email" md={{size:2, offset:1}}>Email</Label>
                             <Col md={9}>
                                 <Input type="email" id="email" name="email" placeholder="Email" value={this.state.email}
-                                valid={errors.email === ''} invalid={errors.email !== ''} 
-                                onChange={this.handleInputChange} onBlur={this.handleBlur('email')}/>
-                                <FormFeedback>{errors.email}</FormFeedback>
+                                onChange={this.handleInputChange}/> 
                             </Col>
                         </FormGroup>
 
@@ -180,17 +113,17 @@ class Register extends Component {
                             <Label htmlFor="acctype" md={{size:3, offset:1}}>Account type</Label>
                             <Col  md={{size: 3, offset:1}}>                                                      
                                 <Input type="radio" name="acctype" value='customer' onChange={this.handleInputChange} 
-                                onBlur={this.handleBlur('acctype')}/>{' '}
+                                required/>{' '}
                                     <p>Customer</p>                                                                
                             </Col>     
                             <Col md={{size: 3, offset:1}}>                           
                                 <Input type="radio" name="acctype" value='vendor' onChange={this.handleInputChange}
-                                onBlur={this.handleBlur('acctype')}/>{' '}
+                                required/>{' '}
                                     <p>Vendor</p>                             
                             </Col>
                         </FormGroup>
 
-                        {this.getShopDetails(errors)}
+                        {this.getShopDetails()}
 
                         <FormGroup row>
                             <Col id="reg-button" style={{textAlign: "center"}} md={{size: 4, offset:4}}>

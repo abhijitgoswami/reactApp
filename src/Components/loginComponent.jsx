@@ -42,14 +42,14 @@ class Login extends Component {
                         <Label htmlFor="username" md={2}>Username</Label>
                         <Col md={10}>
                             <Input type="text" id="username" name="username" placeholder="Username" value={this.state.username}
-                            onChange={this.handleInputChange}/>
+                            onChange={this.handleInputChange} required/>
                         </Col>
                     </FormGroup> 
                     <FormGroup row>
                         <Label htmlFor="password" md={2}>Password</Label>
                         <Col md={10}>
                             <Input type="password" id="password" name="password" placeholder="Password" value={this.state.password}
-                            onChange={this.handleInputChange}/>
+                            onChange={this.handleInputChange} required/>
                         </Col>
                     </FormGroup> 
                     <FormGroup row>
