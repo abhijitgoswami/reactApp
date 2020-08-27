@@ -65,11 +65,11 @@ class Register extends Component {
             shopaddress: ''
         };
 
-        if(this.state.touched.fname &&  fname.length === 0)
+        if(this.state.touched.fname && fname.length === 0)
             errors.fname = "First name cann't be empty";
-        if(this.state.touched.lname &&  lname.length === 0)
+        if(this.state.touched.lname && lname.length === 0)
             errors.lname = "Last name cann't be empty";
-        if(this.state.touched.dob &&  dob.length === 0)
+        if(this.state.touched.dob && dob.length === 0)
             errors.dob = "Date of birth cann't be empty";  
 
         const reg = /^\d+$/;
@@ -77,18 +77,24 @@ class Register extends Component {
             errors.mob = "Field shpuld contain only numbers";
         if(this.state.touched.email && email.split('').filter(x => x ==='@').length !== 1)
             errors.email = "Invalid Email!";
+        if(this.state.touched.shopname && shopname.length === 0)
+            errors.shopname = "Shop name cann't be empty";
+        if(this.state.touched.shopaddress &&  shopaddress.length === 0)
+            errors.shopaddress = "Shop address cann't be empty";
 
         return errors;
     }
 
-    getShopDetails(){
+    getShopDetails(errors){
         if(this.state.acctype === 'vendor'){
             return(
                 <React.Fragment>
                     <FormGroup row>
                         <Label htmlFor="shopname" md={{size:2, offset:1}}>Shop name</Label>
                         <Col md={9}>
-                            <Input type="text" id="shopname" name="shopname" placeholder="Shopname" value={this.state.shopname} onChange={this.handleInputChange} onBlur={this.handleBlur('shopname')}/>
+                            <Input type="text" id="shopname" name="shopname" placeholder="Shopname" value={this.state.shopname} onChange={this.handleInputChange} onBlur={this.handleBlur('shopname')}
+                            valid={errors.shopname === ''} invalid={errors.shopname !== ''}/>
+                            <FormFeedback>{errors.shopname}</FormFeedback>
                         </Col>
                     </FormGroup>
 
@@ -97,7 +103,9 @@ class Register extends Component {
                         <Col md={9}>
                             <Input type="text" id="shopaddress" name="shopaddress" placeholder="Shopaddress" 
                             value={this.state.shopaddress} onChange={this.handleInputChange} 
-                            onBlur={this.handleBlur('shopaddress')}/>
+                            onBlur={this.handleBlur('shopaddress')} valid={errors.shopaddress === ''} 
+                            invalid={errors.shopaddress !== ''}/>
+                            <FormFeedback>{errors.shopaddress}</FormFeedback>
                         </Col>
                     </FormGroup>
                 </React.Fragment>
@@ -182,7 +190,7 @@ class Register extends Component {
                             </Col>
                         </FormGroup>
 
-                        {this.getShopDetails()}
+                        {this.getShopDetails(errors)}
 
                         <FormGroup row>
                             <Col id="reg-button" style={{textAlign: "center"}} md={{size: 4, offset:4}}>
