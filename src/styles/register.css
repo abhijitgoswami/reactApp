@@ -52,3 +52,7 @@
 #reg-button{
     margin-top: 20px;
 }
+
+#reg-footer .nav-link{
+    display: inline-block !important;
+}
