@@ -29,7 +29,13 @@
   border-color: #343a40 !important;
 }
 
-.navbar-toggler:focus{
+/* .navbar-toggler:focus{
   outline: none !important;
   transform: rotate(45deg);
+} */
+
+#hamburger{
+  outline: none;
+  outline: 0;
+  border: 0;
 }

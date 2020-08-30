@@ -33,17 +33,17 @@ class Header extends Component {
                         </NavbarBrand>
                         
                         <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav className="ml-auto">                               
-                                <NavItem>
+                            <Nav className="ml-auto ">                               
+                                <NavItem style={{textAlign:"center"}} className="col-md-3">
                                     <NavLink className="nav-link" to="/home">Home</NavLink>
                                 </NavItem>
-                                <NavItem>
+                                <NavItem style={{textAlign:"center"}} className="col-md-3">
                                     <NavLink className="nav-link" to="/shop">Shop</NavLink>
                                 </NavItem>
-                                <NavItem>
+                                <NavItem style={{textAlign:"center"}} className="col-md-3">
                                     <NavLink className="nav-link" to="/about">About</NavLink>
                                 </NavItem>
-                                <NavItem>
+                                <NavItem style={{textAlign:"center"}} className="col-md-3">
                                     <NavLink className="nav-link" to="/contact">Contact</NavLink>
                                 </NavItem>                                
                             </Nav>
