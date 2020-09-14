@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import '../styles/home.css';
-import {Card, CardTitle, CardBody, CardDeck} from 'reactstrap';
+import {Card, CardTitle, CardBody, CardDeck, Modal, ModalHeader, ModalBody, Button, Form, FormGroup, Label, Input, Col} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 
 class Home extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            isModalOpen: false
+        };
+        this.toggleModal = this.toggleModal.bind(this);
+    }
+
+    toggleModal(){
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
+    }
     render() { 
         return (  
             <React.Fragment>          
@@ -17,7 +30,7 @@ class Home extends Component {
                             
                                 <div id="log-reg">
                                     <div id="log" className="float-left">
-                                        <NavLink className="nav-link" to="/login">LOGIN</NavLink>
+                                        <Button outline onClick={this.toggleModal}>LOGIN</Button>
                                     </div>
                                     <div id="reg" className="float-left">
                                         <NavLink className="nav-link" to="/register">SIGN UP</NavLink>
@@ -69,6 +82,49 @@ class Home extends Component {
                         </Card>
                     </CardDeck>
                 </div>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+                    <ModalBody>
+                        <Form onSubmit={this.handleSubmit}> 
+                            <FormGroup row>
+                                <Label htmlFor="username" md={2}>Username</Label>
+                                <Col md={10}>
+                                    <Input type="text" id="username" name="username" placeholder="Username" value={this.state.username}
+                                    onChange={this.handleInputChange} required/>
+                                </Col>
+                            </FormGroup> 
+                            <FormGroup row>
+                                <Label htmlFor="password" md={2}>Password</Label>
+                                <Col md={10}>
+                                    <Input type="password" id="password" name="password" placeholder="Password" value={this.state.password}
+                                    onChange={this.handleInputChange} required/>
+                                </Col>
+                            </FormGroup> 
+                            <FormGroup row>
+                                <Col style={{textAlign: "center"}} md={{size: 4, offset:4}}>
+                                    <FormGroup style={{paddingLeft:0}} check>
+                                        <Label  check>
+                                            <Input  type="checkbox" name="remember" defaultChecked={this.state.remember} 
+                                            onChange={this.handleInputChange}/>{' '}
+                                                <strong style={{marginLeft:20}}>Remember me</strong>
+                                        </Label>
+                                    </FormGroup>
+                                </Col>
+                            </FormGroup>
+                            <FormGroup row>
+                                <Col style={{textAlign: "center"}} md={{size: 4, offset:4}}>
+                                    <Button type="submit" color="primary" >Login</Button>
+                                </Col>
+                            </FormGroup> 
+
+                            <div id="log-footer">
+                                <strong>Not have an account ?</strong>{" "}
+                                <strong><NavLink className="nav-link" to="/register">SIGN Up</NavLink></strong>
+                            </div> 
+                            
+                        </Form>
+                    </ModalBody>      
+                </Modal>
             </React.Fragment>
                 
             
@@ -77,3 +133,11 @@ class Home extends Component {
 }
  
 export default Home;
+
+// <Nav className="ml-auto" navbar>
+//     <NavItem>
+//         <Button outline onClick={this.toggleModal}>
+//             <span className="fa fa-sign-in fa-lg"></span>Login
+//         </Button>
+//     </NavItem>
+// </Nav>
