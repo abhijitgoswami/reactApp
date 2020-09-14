@@ -19,6 +19,7 @@ class Footer extends Component {
                             <h5>Contact</h5>
                             <p><NavLink to="/contact">Contact Us</NavLink></p>
                             <p><NavLink to="/help">Help and Support</NavLink></p>
+                            <p><NavLink to="/vendorregistration">Partner with us</NavLink></p>
                         </div>
 
                         <div id="legal" className="col-lg-3 col-md-12 col-sm-12 col-xs-12">

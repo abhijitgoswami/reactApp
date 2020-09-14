@@ -6,6 +6,8 @@ import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Register from './registrationComponent';
 import Header from './headerComponent';
 import Footer from './footerComponent';
+import VendorReg from './VendorRegComponent';
+import VendorProfile from './VendorProfile';
 
 class Main extends Component {
     
@@ -18,6 +20,8 @@ class Main extends Component {
                     <Route path="/about" component={About}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
+                    <Route path="/vendorregistration" component={VendorReg}/>
+                    <Route path="/vendorprofile" component={VendorProfile}/>
                     <Redirect to="/home"/>
                 </Switch>
                 <Footer/>

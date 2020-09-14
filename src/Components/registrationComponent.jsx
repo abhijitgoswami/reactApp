@@ -12,9 +12,9 @@ class Register extends Component {
             email: '',
             lname: '',
             dob: '',
-            acctype: '',
             shopname: '',
             shopaddress: '',
+            password: '',
             isModalOpen: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -117,21 +117,22 @@ class Register extends Component {
                             </Col>
                         </FormGroup>
 
-                        <FormGroup row id="cust-type">
-                            <Label htmlFor="acctype" md={{size:3, offset:1}}>Account type</Label>
-                            <Col  md={{size: 3, offset:1}}>                                                      
-                                <Input type="radio" name="acctype" value='customer' onChange={this.handleInputChange} 
-                                required/>{' '}
-                                    <p>Customer</p>                                                                
-                            </Col>     
-                            <Col md={{size: 3, offset:1}}>                           
-                                <Input type="radio" name="acctype" value='vendor' onChange={this.handleInputChange}
-                                required/>{' '}
-                                    <p>Vendor</p>                             
+                        <FormGroup row>
+                            <Label htmlFor="password" md={2}>Password*</Label>
+                            <Col md={9}>
+                                <Input type="password" id="password" name="password" placeholder="Password" 
+                                value={this.state.password}
+                                onChange={this.handleInputChange} required/>              
                             </Col>
                         </FormGroup>
 
-                        {this.getShopDetails()}
+                        <FormGroup row>
+                            <Label htmlFor="cnfpassword" md={2}>Confirm password*</Label>
+                            <Col md={9}>
+                                <Input type="password" id="cnfpassword" name="cnfpassword" placeholder="Confirm password" value={this.state.lname}
+                                onChange={this.handleInputChange} required/>              
+                            </Col>
+                        </FormGroup>
 
                         <FormGroup row>
                             <Col id="reg-button" style={{textAlign: "center"}} md={{size: 4, offset:4}}>
