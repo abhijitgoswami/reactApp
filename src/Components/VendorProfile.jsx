@@ -16,7 +16,7 @@ class VendorProfile extends Component {
                             <CardImg src={require("../Images/demoUser.jpg")} alt="profile"/>
                         </Card>
                         <Card>
-                            <CardTitle >Vendor Name</CardTitle>
+                            <CardTitle >Abhijit Goswami</CardTitle>
                             <CardBody>
                                 <p>Address: Rajosmita Cottage, 10/A K P Banerjee lane, konnagar</p>
                                 <p>Mobile: 8409279455</p>
