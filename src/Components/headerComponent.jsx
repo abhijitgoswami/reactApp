@@ -33,7 +33,7 @@ class Header extends Component {
                             </NavbarBrand>
                             
                             <Collapse isOpen={this.state.isNavOpen} navbar>
-                                <Nav className="ml-auto ">                               
+                                <Nav className="ml-auto" onClick={this.toggleNav}>                               
                                     <NavItem style={{textAlign:"center"}} className="col-md-3">
                                         <NavLink className="nav-link" to="/home">Home</NavLink>
                                     </NavItem>
