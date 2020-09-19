@@ -55,15 +55,7 @@ class Header extends Component {
                                         </NavLink>
                                     </NavItem>                                
                                 </Nav>
-                            </Collapse> 
-
-                            <Row bsPrefix="d-block d-lg-none d-md-none">
-                                <div className="container">
-                                    <div id="mobile" >
-                                        <span>8409279455</span>
-                                    </div>
-                                </div>
-                            </Row>                       
+                            </Collapse>                     
                         </div>
 
                     </Navbar>
