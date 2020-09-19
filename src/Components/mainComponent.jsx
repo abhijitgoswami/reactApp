@@ -8,6 +8,7 @@ import Header from './headerComponent';
 import Footer from './footerComponent';
 import VendorReg from './VendorRegComponent';
 import VendorProfile from './VendorProfile';
+import ContactUs from './ContactComponent';
 
 class Main extends Component {
     
@@ -20,6 +21,7 @@ class Main extends Component {
                     <Route path="/about" component={About}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
+                    <Route path="/contact" component={ContactUs}/>
                     <Route path="/vendorregistration" component={VendorReg}/>
                     <Route path="/vendorprofile" component={VendorProfile}/>
                     <Redirect to="/home"/>

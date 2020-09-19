@@ -47,37 +47,13 @@ body{
 #navbrand a{
     text-decoration: none;
 }
+
 #log-reg{
     float: right;
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
     margin-right: 1rem;
     text-align: center;
-}
-
-#log{
-    padding: 2px 10px 2px 10px;
-    margin-left: 10px;
-    border-radius: 10px;
-}
-
-#reg{
-    padding: 2px 10px 2px 10px;
-    margin-left: 10px;
-    background-color: black;
-    border-radius: 10px;
-}
-
-#log a{
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#reg a{
-    color: whitesmoke;
-    text-decoration: none;
-    font-weight: bold;
 }
 
 #search{

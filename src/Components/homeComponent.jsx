@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 import '../styles/home.css';
-import {Card, CardTitle, CardBody, CardDeck, Modal, ModalHeader, ModalBody, Button, Form, FormGroup, Label, Input, Col} from 'reactstrap';
+import {Card, CardTitle, CardBody, CardDeck, Button} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
+import Login from './loginComponent';
 
 class Home extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            isModalOpen: false
-        };
-        this.toggleModal = this.toggleModal.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    toggleModal(){
-        this.setState({
-            isModalOpen: !this.state.isModalOpen
-        });
+    handleSubmit(values){
+        console.log("Current State is: " + JSON.stringify(values));
+        alert("Current State is: " + JSON.stringify(values));
     }
+
     render() { 
         return (  
             <React.Fragment>          
@@ -29,11 +27,13 @@ class Home extends Component {
                                 </div> 
                             
                                 <div id="log-reg">
-                                    <div id="log" className="float-left">
-                                        <Button outline onClick={this.toggleModal}>LOGIN</Button>
+                                    <div className="float-left">
+                                        <Login/>
                                     </div>
-                                    <div id="reg" className="float-left">
-                                        <NavLink className="nav-link" to="/register">SIGN UP</NavLink>
+                                    <div className="float-left">
+                                    <Button color="primary"  className="ml-2">
+                                        <NavLink style={{color:"white", textDecoration:"none"}} to="/register">SIGN UP</NavLink>
+                                    </Button>
                                     </div>
                                 </div>  
                             </div>    
@@ -82,49 +82,6 @@ class Home extends Component {
                         </Card>
                     </CardDeck>
                 </div>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
-                    <ModalBody>
-                        <Form onSubmit={this.handleSubmit}> 
-                            <FormGroup row>
-                                <Label htmlFor="username" md={2}>Username</Label>
-                                <Col md={10}>
-                                    <Input type="text" id="username" name="username" placeholder="Username" value={this.state.username}
-                                    onChange={this.handleInputChange} required/>
-                                </Col>
-                            </FormGroup> 
-                            <FormGroup row>
-                                <Label htmlFor="password" md={2}>Password</Label>
-                                <Col md={10}>
-                                    <Input type="password" id="password" name="password" placeholder="Password" value={this.state.password}
-                                    onChange={this.handleInputChange} required/>
-                                </Col>
-                            </FormGroup> 
-                            <FormGroup row>
-                                <Col style={{textAlign: "center"}} md={{size: 4, offset:4}}>
-                                    <FormGroup style={{paddingLeft:0}} check>
-                                        <Label  check>
-                                            <Input  type="checkbox" name="remember" defaultChecked={this.state.remember} 
-                                            onChange={this.handleInputChange}/>{' '}
-                                                <strong style={{marginLeft:20}}>Remember me</strong>
-                                        </Label>
-                                    </FormGroup>
-                                </Col>
-                            </FormGroup>
-                            <FormGroup row>
-                                <Col style={{textAlign: "center"}} md={{size: 4, offset:4}}>
-                                    <Button type="submit" color="primary" >Login</Button>
-                                </Col>
-                            </FormGroup> 
-
-                            <div id="log-footer">
-                                <strong>Not have an account ?</strong>{" "}
-                                <strong><NavLink className="nav-link" to="/register">SIGN Up</NavLink></strong>
-                            </div> 
-                            
-                        </Form>
-                    </ModalBody>      
-                </Modal>
             </React.Fragment>
                 
             
