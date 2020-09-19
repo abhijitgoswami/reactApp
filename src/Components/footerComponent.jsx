@@ -30,24 +30,37 @@ class Footer extends Component {
                             <p><NavLink to="/help">Cookies Policy</NavLink></p>
                             <p><NavLink to="/help">Offer Terms</NavLink></p>
                         </div>
+
+                        <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 align-self-center">
+                                <div className="text-center">
+                                    <a className='btn btn-social-icon btn-google mr-2' href="http://google.com/+">
+                                        <i className='fa fa-google-plus'></i>
+                                    </a>
+                                    <a className='btn btn-social-icon btn-facebook mr-2' href="http://www.facebook.com/profile.php?id=">
+                                        <i className='fa fa-facebook'></i>
+                                    </a>
+                                    <a className='btn btn-social-icon btn-linkedin mr-2' href="http://www.linkedin.com/in/">
+                                        <i className='fa fa-linkedin'></i>
+                                    </a>
+                                    <a className='btn btn-social-icon btn-twitter mr-2' href="http://twitter.com/">
+                                        <i className='fa fa-twitter'></i>
+                                    </a>
+                                    <a className='btn btn-social-icon btn-google mr-2' href="http://youtube.com/">
+                                        <i className='fa fa-google'></i>
+                                    </a>
+                                    <a className='btn btn-social-icon btn-mailto mr-2' href="mailto:">
+                                        <i className='fa fa-google-mailto'></i>
+                                    </a>
+                                </div>
+                            </div>
                     </div>
 
                     <hr/>
                    
                     <div className="container">
                         <div className="row">
-                            <div id="fotter-brand" className="col-lg-6 col-sm-12 col-xs-12">
-                                <NavbarBrand className="mr-auto" href="/home">
-                                    <span>Brand Name</span>
-                                </NavbarBrand>
-                            </div>
-
-                            <div id="copyright" className="col-lg-6 col-sm-12 col-xs-12">
+                            <div id="copyright" className="col-12">
                                 <h5>&copy; 2020 Brand Name</h5>
-                            </div>
-
-                            <div id="social-network">
-
                             </div>
                         </div>
                     </div>
