@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {NavbarBrand} from 'reactstrap';
 import '../styles/footer.css';
 import {NavLink} from 'react-router-dom';
 

@@ -35,16 +35,24 @@ class Header extends Component {
                             <Collapse isOpen={this.state.isNavOpen} navbar>
                                 <Nav className="ml-auto" onClick={this.toggleNav}>                               
                                     <NavItem style={{textAlign:"center"}} className="col-md-3">
-                                        <NavLink className="nav-link" to="/home">Home</NavLink>
+                                        <NavLink className="nav-link" to="/home">
+                                            <span className="fa fa-home fa-md">Home</span>
+                                        </NavLink>
                                     </NavItem>
                                     <NavItem style={{textAlign:"center"}} className="col-md-3">
-                                        <NavLink className="nav-link" to="/shop">Shop</NavLink>
+                                        <NavLink className="nav-link" to="/shop">
+                                            <span className="fas fa-store-alt fa-md">Shop</span>
+                                        </NavLink>
                                     </NavItem>
                                     <NavItem style={{textAlign:"center"}} className="col-md-3">
-                                        <NavLink className="nav-link" to="/about">About</NavLink>
+                                        <NavLink className="nav-link" to="/about">
+                                            <span className="fa fa-info fa-md">About</span>
+                                        </NavLink>
                                     </NavItem>
                                     <NavItem style={{textAlign:"center"}} className="col-md-3">
-                                        <NavLink className="nav-link" to="/contact">Contact</NavLink>
+                                        <NavLink className="nav-link" to="/contact">
+                                            <span className="fa fa-address-book fa-md">Contact</span>
+                                        </NavLink>
                                     </NavItem>                                
                                 </Nav>
                             </Collapse> 

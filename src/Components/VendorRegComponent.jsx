@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import VendorProfile from './VendorProfile';
-import {Form, Button, FormGroup, Label, Input, Col, Row} from 'reactstrap';
+import {Button, Label, Col, Row} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import { Control, LocalForm } from 'react-redux-form';
 

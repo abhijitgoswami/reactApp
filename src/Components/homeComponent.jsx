@@ -3,6 +3,7 @@ import '../styles/home.css';
 import {Card, CardTitle, CardBody, CardDeck, Button} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import Login from './loginComponent';
+import { LocalForm, Control } from 'react-redux-form';
 
 class Home extends Component {
     constructor(props){
@@ -11,7 +12,6 @@ class Home extends Component {
     }
 
     handleSubmit(values){
-        console.log("Current State is: " + JSON.stringify(values));
         alert("Current State is: " + JSON.stringify(values));
     }
 
@@ -41,10 +41,10 @@ class Home extends Component {
                             <div id="search-food">
                                 <h3>Unexpected Guest?</h3>
                                 <p>Order groceries from favourite grocery store near you!</p>
-                                <div id="search">
-                                    <input type="text"/>
+                                <LocalForm id="search" onSubmit={(values) => this.handleSubmit(values)}>
+                                    <Control.text type="search" model=".search" />
                                     <button>Find</button>
-                                </div>
+                                </LocalForm>
                             </div>                                                                                 
                         </Card>
 
