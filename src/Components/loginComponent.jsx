@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import {Button, Label, Col, Row} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
-import { Control, LocalForm } from 'react-redux-form';
+import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Modal, ModalBody, ModalHeader} from 'reactstrap';
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => (val) && (val.length >= len);
+const isNumber = (val) => !isNaN(Number(val));
+const validEmail = (val) => /^[A-Z0-9.%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
 class Login extends Component {
     constructor(props){
@@ -36,7 +42,12 @@ class Login extends Component {
                             <Label htmlFor="username" md={2}>Username</Label>
                             <Col md={10}>
                                 <Control.text model=".username" id="username" name="username" placeholder="Username"
-                                className="form-control"/>
+                                className="form-control" 
+                                validators={{required}}/>
+                                <Errors className="text-danger" model=".username" show="touched"
+                                messages={{
+                                    required: 'Required! '
+                                }}/>
                             </Col>
                         </Row> 
 
@@ -44,7 +55,12 @@ class Login extends Component {
                             <Label htmlFor="password" md={2}>Password</Label>
                             <Col md={10}>
                                 <Control.password model=".password" id="password" name="password" placeholder="Password"
-                                className="form-control"/>
+                                className="form-control"
+                                validators={{required}}/>
+                                <Errors className="text-danger" model=".username" show="touched"
+                                messages={{
+                                    required: 'Required! '
+                                }}/>
                             </Col>
                         </Row> 
 
@@ -52,9 +68,7 @@ class Login extends Component {
                             <Col md={{size: 8, offset: 4}}>
                                 <div className="form-check">
                                     <Label check>
-                                        <Control.checkbox model=".agree" name="agree"
-                                            className="form-check-input"
-                                        />
+                                        <Control.checkbox model=".agree" name="agree" className="form-check-input"/>
                                         <strong>Remember me</strong>
                                     </Label>
                                 </div>
