@@ -41,10 +41,19 @@ class Store extends Component {
     delItem = (key) => {
         const itemIndex = this.state.items.findIndex((item) => item.id === key)
         let newState = [...this.state.items]
-        newState[itemIndex] = {
-            ...newState[itemIndex],
-            qty: newState[itemIndex].qty - 1
+        if(newState[itemIndex].qty>0){
+            newState[itemIndex] = {
+                ...newState[itemIndex],
+                qty: newState[itemIndex].qty - 1
+            }
         }
+        else{
+            newState[itemIndex] = {
+                ...newState[itemIndex],
+                qty: 0
+            }
+        }
+        
         this.setState({
             items: newState
         })
@@ -71,7 +80,6 @@ class Store extends Component {
             <React.Fragment>
                 <div className="container">
                     {item}
-                    {console.log(this.state)} 
                 </div>
             </React.Fragment>
         );
