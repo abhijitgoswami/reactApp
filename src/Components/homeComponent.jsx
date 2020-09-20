@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/home.css';
-import {Card, CardTitle, CardBody, CardDeck, Button} from 'reactstrap';
+import {Card, CardTitle, CardBody, CardDeck, Button, Row} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import Login from './loginComponent';
 import { LocalForm, Control } from 'react-redux-form';
@@ -18,9 +18,9 @@ class Home extends Component {
     render() { 
         return (  
             <React.Fragment>          
-                <div id="home-body" >                
-                    <div id="home-top" className="row">                  
-                        <Card id="brand" className="col-lg-6 col-md-6 col-sm-12">   
+                <div id="home-body" >                             
+                    <CardDeck>              
+                        <Card id="brand" className="col-lg-6 col-md-12 col-sm-12">   
                             <div id="logo">
                                 <div id="navbrand" className="mr-auto">
                                     <NavLink to="/home">Brand Name</NavLink>
@@ -42,17 +42,20 @@ class Home extends Component {
                                 <h3>Unexpected Guest?</h3>
                                 <p>Order groceries from favourite grocery store near you!</p>
                                 <LocalForm id="search" onSubmit={(values) => this.handleSubmit(values)}>
-                                    <Control.text type="search" model=".search" />
-                                    <button>Find</button>
+                                    <Row className="form-group">
+                                        <Control.text type="search" model=".search"  className="form-control"/>
+                                        <button>Find</button>
+                                    </Row>
                                 </LocalForm>
                             </div>                                                                                 
                         </Card>
 
-                        <Card id="image" className="col-lg-6 col-md-6 col-sm-12">
+                        <Card id="image" className="col-lg-6 col-md-12 col-sm-12">
                             <img src={require('../Images/groceries.jpg')} alt="img"/>
-                        </Card>                 
-                    </div>                             
-                </div>
+                        </Card>  
+                    </CardDeck>               
+                </div>                             
+               
                 <div id="home-middle" >
                     <CardDeck>
                         <Card >

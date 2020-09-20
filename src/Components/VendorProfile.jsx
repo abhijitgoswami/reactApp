@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import { Card, CardImg, CardTitle, CardBody } from 'reactstrap';
 
 class VendorProfile extends Component {
@@ -26,9 +27,17 @@ class VendorProfile extends Component {
                         </Card>
                     </div>
                     <div className="container">
-                        <Button className="col-12 col-md-3 mr-5 mt-3">Edit info</Button>
-                        <Button className="col-12 col-md-3 mr-5 mt-3">Edit Stock</Button>
-                        <Button className="col-12 col-md-3 mr-5 mt-3">Add shop</Button>
+                        <div className="row">
+                            <Button className="col-12 col-md-3 mr-5 mt-3">
+                                <NavLink style={{color:"white"}} className="nav-link" to="/home">Edit info</NavLink>
+                            </Button>
+                            <Button className="col-12 col-md-3 mr-5 mt-3">
+                                <NavLink style={{color:"white"}} className="nav-link" to="/shop">Edit Stock</NavLink>
+                            </Button>
+                            <Button className="col-12 col-md-3 mr-5 mt-3">
+                                <NavLink style={{color:"white"}} className="nav-link" to="/home">Add shop</NavLink>
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </React.Fragment>
