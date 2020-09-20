@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Input, Label, Row } from 'reactstrap';
-import {Button} from 'react-bootstrap';
+import { Col, Input, Label, Row, Button } from 'reactstrap';
 
 class Store extends Component {
     constructor(props){
@@ -11,20 +10,44 @@ class Store extends Component {
                 {
                     id: 0,
                     item: "Buiscuit",
-                    qty: 10,
+                    qty: 0,
                 },
                 {
                     id: 1,
                     item: "Chips",
-                    qty: 3,
+                    qty: 0,
                 },
                 {
                     id: 2,
                     item: "Chocolates",
-                    qty: 10,
+                    qty: 0,
                 }
             ]
         }
+    }
+
+    addItem = (key) => {
+        const itemIndex = this.state.items.findIndex((item) => item.id === key)
+        let newState = [...this.state.items]
+        newState[itemIndex] = {
+            ...newState[itemIndex],
+            qty: newState[itemIndex].qty + 1
+        }
+        this.setState({
+            items: newState
+        })
+    }
+
+    delItem = (key) => {
+        const itemIndex = this.state.items.findIndex((item) => item.id === key)
+        let newState = [...this.state.items]
+        newState[itemIndex] = {
+            ...newState[itemIndex],
+            qty: newState[itemIndex].qty - 1
+        }
+        this.setState({
+            items: newState
+        })
     }
 
     render() { 
@@ -36,9 +59,9 @@ class Store extends Component {
                     </Col>
                     <Col style={{textAlign:"center"}}>
                         <Row >
-                            <Col><Button >-</Button></Col>
+                            <Col><Button type="submit" color="primary" onClick={() => this.delItem(item.id)}>-</Button></Col>
                             <Col><Label><Input placeholder={item.qty}></Input></Label></Col>
-                            <Col><Button >+</Button></Col>                           
+                            <Col><Button type="submit" color="primary" onClick={() => this.addItem(item.id)}>+</Button></Col>                          
                         </Row>
                     </Col>
                 </Row>
@@ -46,9 +69,9 @@ class Store extends Component {
         })
         return (  
             <React.Fragment>
-                
                 <div className="container">
                     {item}
+                    {console.log(this.state)} 
                 </div>
             </React.Fragment>
         );
